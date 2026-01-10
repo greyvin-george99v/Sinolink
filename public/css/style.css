@@ -1,34 +1,33 @@
-/* RESET */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html {
     scroll-behavior: smooth;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family: 'Poppins', sans-serif;
-  background: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    background: #ffffff;
+    color: #333;
+    line-height: 1.6;
 }
 
-/* PAGE CENTERING */
 .page {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* CONTAINER */
+
 .container {
   width: 100%;
   max-width: 1440px;
   padding: 0 20px;
 }
-/* TOP HEADER */
-/* --- GLOBAL STYLES --- */
+
 * {
     margin: 0;
     padding: 0;
@@ -36,7 +35,6 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-/* --- MAIN HEADER (Dark) --- */
 .main-header {
     background-color: #000000;
     padding: 15px 0;
@@ -120,14 +118,6 @@ body {
     opacity: 0.7;
 }
 
-/* --- NAVIGATION (Yellow) --- */
-
-/* --- DESKTOP STYLES (Restoring your clean look) --- */
-/* ==========================================================================
-   MAIN NAVIGATION - CONSOLIDATED CSS
-   ========================================================================== */
-
-/* --- 1. Desktop & General Layout --- */
 .main-nav {
     background-color: #ffffff !important;
     position: sticky;
@@ -153,7 +143,7 @@ body {
     display: block;
 }
 
-/* Desktop Links */
+
 .nav-links {
     display: flex;
     list-style: none;
@@ -175,7 +165,7 @@ body {
     color: #E1061B; /* Brand Red */
 }
 
-/* Desktop Red Button */
+
 .btn-quote {
     background-color: #E1061B !important;
     color: #ffffff !important;
@@ -186,21 +176,20 @@ body {
     transition: background 0.3s;
 }
 
-/* Hide Mobile Elements on Desktop */
+
 .menu-toggle, 
 .close-menu, 
 .mobile-quote-container {
     display: none;
 }
 
-/* --- 2. Mobile Layout (Max-width 768px) --- */
+
 @media (max-width: 768px) {
-    /* Ensure the black top-header is completely gone on mobile */
+
     .main-header, .top-bar { 
         display: none !important; 
     }
 
-    /* 1. THE HAMBURGER */
     .menu-toggle {
         display: block !important;
         font-size: 28px;
@@ -208,9 +197,9 @@ body {
         z-index: 1000;
     }
 
-    /* 2. THE X (Hidden by default) */
+
     .close-menu {
-        display: none; /* Initially hidden */
+        display: none;
         position: fixed;
         top: 0;
         right: 0;
@@ -221,10 +210,9 @@ body {
         font-size: 32px;
         color: #333;
         cursor: pointer;
-        z-index: 10001; /* Above the drawer */
+        z-index: 10001;
     }
 
-    /* 3. ICON SWAP LOGIC: When menu is open, hide hamburger & show X */
     .menu-open .menu-toggle {
         display: none !important;
     }
@@ -232,25 +220,23 @@ body {
         display: flex !important;
     }
 
-    /* 4. THE OVERLAY */
     .menu-overlay {
-    position: fixed; /* Fixes it to the viewport, not the header */
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.7) !important; /* Solid dark tint */
-    backdrop-filter: none !important; /* REMOVES THE BLUR */
+    background: rgba(0, 0, 0, 0.7) !important;
+    backdrop-filter: none !important; 
     -webkit-backdrop-filter: none !important; 
-    z-index: 9000; /* Sits behind the drawer but over the page */
+    z-index: 9000; 
     display: none;
-    opacity: 1 !important; /* Ensures no weird transparency glitches */
+    opacity: 1 !important;
 }
     .menu-overlay.active .menu-open .menu-overlay {
         display: block;
     }
-    
-    /* THE DRAWER */
+
     .nav-links {
         position: fixed !important;
         top: 0;
@@ -267,10 +253,9 @@ body {
     }
 }
 @media (max-width: 768px) {
-    /* Kill the black bar and desktop button */
     .main-header, .top-bar, .btn-quote { display: none !important; }
 
-    /* 1. THE X: Stays in place, replaces hamburger */
+
     .close-menu {
         display: none; 
         position: fixed;
@@ -282,28 +267,27 @@ body {
         justify-content: center;
         font-size: 30px;
         color: #333;
-        z-index: 10001; /* Highest z-index */
+        z-index: 10001;
         cursor: pointer;
     }
 
-    /* 2. THE OVERLAY: Fixes the 'blurry/dark bar' issue */
+
     .menu-overlay {
         position: fixed;
         top: 0;
         left: 0;
         width: 100vw;
         height: 100vh;
-        background: rgba(0, 0, 0, 0.5); /* No blur filter here! */
+        background: rgba(0, 0, 0, 0.5);
         z-index: 9000;
         display: none;
     }
 
-    /* 3. LOGIC: When menu is open */
-    body.menu-open .menu-toggle { display: none !important; } /* Hide Hamburger */
-    body.menu-open .close-menu { display: flex !important; }  /* Show X */
+    body.menu-open .menu-toggle { display: none !important; }
+    body.menu-open .close-menu { display: flex !important; } 
     body.menu-open .menu-overlay { display: block !important; }
 
-    /* 4. THE DRAWER */
+  
     .nav-links {
         position: fixed !important;
         top: 0;
@@ -323,7 +307,6 @@ body {
 }
 
 @media (max-width: 768px) {
-    /* Hide top black bar and desktop-only quote button */
     .main-header, 
     .btn-quote
     ,top-bar {
@@ -337,7 +320,7 @@ body {
         padding: 0;
     }
 
-    /* Force Logo Left and Hamburger Right */
+
     .nav__inner {
         height: 100% !important;
         display: flex !important;
@@ -349,20 +332,20 @@ body {
         display: block !important;
         font-size: 28px;
         cursor: pointer;
-        z-index: 1001; /* Above the nav, below the drawer */
+        z-index: 1001; 
     }
-    .nav-links.active + .menu-toggle { display: none !important; } /* Hide hamburger */
+    .nav-links.active + .menu-toggle { display: none !important; } 
     
-    /* We use JS to toggle a class on the body or nav to show this */
+
     .menu-open .close-menu {
         display: flex !important;
     }
 
-    /* THE DRAWER: Sliding from the Left */
+
     .nav-links {
         position: fixed !important;
         top: 0;
-        left: -100% !important; /* Start hidden left */
+        left: -100% !important; 
         width: 80% !important;
         height: 100vh !important;
         background: #ffffff !important;
@@ -375,25 +358,24 @@ body {
     }
 
     .nav-links.active {
-        left: 0 !important; /* Slide in */
+        left: 0 !important; 
     }
 
-    /* THE X: Positioned exactly where the hamburger sits */
    .close-menu {
-        display: none; /* Hidden by default */
+        display: none;
         position: fixed;
         top: 0;
         right: 0;
-        height: 70px; /* Match nav height */
-        width: 70px;  /* Square hit area */
+        height: 70px;
+        width: 70px;
         align-items: center;
         justify-content: center;
         font-size: 32px;
         color: #333;
         cursor: pointer;
-        z-index: 10001; /* Highest level - stays on top of everything */
+        z-index: 10001; 
     }
-    /* Mobile Link Items with Separators */
+    
     .nav-links li {
         width: 100%;
         list-style: none;
@@ -407,10 +389,9 @@ body {
         text-align: left;
     }
 
-    /* Mobile Red Button at Bottom */
     .mobile-quote-container {
         display: block !important;
-        margin-top: auto !important; /* Forces button to the very bottom */
+        margin-top: auto !important; 
         padding: 20px;
     }
 
@@ -427,7 +408,7 @@ body {
     }
 }
 
-/* --- 3. Dimmed Background Overlay --- */
+
 .menu-overlay {
     position: fixed;
     top: 0;
@@ -442,8 +423,7 @@ body {
 .menu-overlay.active {
     display: block;
 }
-/* HERO / LANDING */
-/* --- HERO SECTION --- */
+
 .hero-slider {
     position: relative;
     width: 100%;
@@ -455,7 +435,7 @@ body {
 .slide {
     position: absolute;
     inset: 0;
-    overflow: hidden; /* Crucial for zoom effect */
+    overflow: hidden; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -473,7 +453,7 @@ body {
         transform: scale(1);
     }
     100% {
-        transform: scale(1.15); /* Adjust 1.15 to zoom more or less */
+        transform: scale(1.15); 
     }
 }
 
@@ -494,7 +474,7 @@ body {
     height: 100%;
     background-size: cover;
     background-position: center;
-    z-index: -1; /* Keep it behind text */
+    z-index: -1; 
     transform: scale(1);
     transition: transform 0.8s ease-in-out;
 }
@@ -529,11 +509,11 @@ body {
     z-index: 2;
 }
 
-/* Center Content & Button */
+
 .hero__inner {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers button horizontally */
+    align-items: center;
     text-align: center;
     gap: 20px;
 }
@@ -557,7 +537,7 @@ body {
 
 .dot.active {
     background: #E1061B;
-    width: 60px; /* Stretches when active */
+    width: 60px; 
 }
 
 .hero-text h1 {
@@ -576,7 +556,7 @@ body {
     display: inline-block;
 }
 
-/* Navigation Arrows */
+
 .slider-arrow {
     position: absolute;
     top: 50%;
@@ -601,7 +581,7 @@ body {
 
 .prev { background: #ffffff !important; color: #000 !important; left: 30px; }
 .next { background: #E1061B !important; color: #fff !important; right: 30px; }
-/* Force Slide 1 background and overlay */
+
 
 
 .slide.active {
@@ -610,7 +590,7 @@ body {
     z-index: 2;
 }
 
-/* Fix for the black text in your current view */
+
 .hero-text h1 {
     color: #ffffff !important;
     font-family: "Helvetica Black", sans-serif;
@@ -624,20 +604,20 @@ body {
     text-align: center;
     max-width: 600px;
     margin: 15px auto;
-}/* --- ABOUT US --- */
+}
 .about {
     width: 100%;
-    padding: 100px 20px; /* Use 20px padding instead of 10px for better edge spacing */
+    padding: 100px 20px;
     display: flex;
     justify-content: center;
 }
 
 .about__inner {
-    width: 100%;             /* Changed from 1440px to 100% */
-    max-width: 1152px;       /* This keeps it from getting too wide on desktop */
+    width: 100%;  
+    max-width: 1152px;
     display: flex;
     justify-content: space-between;
-    align-items: center;     /* Centers items vertically on desktop */
+    align-items: center;
     gap: 60px;
 }
 
@@ -661,9 +641,9 @@ body {
 .about-image {
     flex: 1;
     width: 100%;
-    max-width: 564px;        /* Keeps Figma size on desktop */
-    height: auto;            /* CRITICAL: Prevents squashing/distortion */
-    aspect-ratio: 564 / 502; /* Maintains your specific design proportions */
+    max-width: 564px;        
+    height: auto;            
+    aspect-ratio: 564 / 502; 
     object-fit: cover;
     border-top-left-radius: 80px;
     border-bottom-right-radius: 80px;
@@ -671,8 +651,8 @@ body {
 
 .about-tag {
     display: inline-block;
-    padding: 4px 12px; /* Adjusting for Figma height */
-    background: #FEF6E0; /* The light cream/yellow from Figma */
+    padding: 4px 12px; 
+    background: #FEF6E0; 
     color: #000000;
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
@@ -681,16 +661,16 @@ body {
     border-top-left-radius: 8px;
     border-bottom-right-radius: 8px;
     width: fit-content;
-    margin-bottom: 8px; /* Spacing from the H2 */
+    margin-bottom: 8px; 
 }
 
-/* --- READ MORE BUTTON STYLING --- */
+
 .about-btn {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    padding: 12px 32px; /* Standard button padding */
-    background: #E1061B; /* Sinolink Red */
+    padding: 12px 32px; 
+    background: #E1061B; 
     color: #ffffff;
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
@@ -705,11 +685,11 @@ body {
     background: #bd0517;
     transform: translateY(-2px);
 }
-/* --- MOBILE VIEW (The "Overlap" Fix) --- */
+
 @media (max-width: 992px) {
     .about__inner {
-        flex-direction: column; /* Stack vertically */
-        padding: 0;             /* Remove the 144px padding that breaks mobile */
+        flex-direction: column; 
+        padding: 0;             
         text-align: center;
         gap: 40px;
     }
@@ -720,24 +700,24 @@ body {
     }
 
     .about-heading h2 br {
-        display: none;          /* Removes forced breaks on small screens */
+        display: none;          
     }
 
     .about-image {
-        max-width: 100%;        /* Allows image to fit the phone screen */
+        max-width: 100%;        
         border-top-left-radius: 40px;
         border-bottom-right-radius: 40px;
     }
 
     .about-btn {
-        margin: 0 auto;         /* Centers the button */
+        margin: 0 auto;         
     }
 }
 @media (max-width: 768px) {
     .about-content {
         display: flex;
         flex-direction: column;
-        align-items: center; /* Centers tag and button on mobile */
+        align-items: center; 
         text-align: center;
     }
     
@@ -747,12 +727,11 @@ body {
 
     .about-btn {
         margin: 0 auto;
-        width: 80%; /* Makes button easier to tap on mobile */
+        width: 80%; 
         max-width: 280px;
     }
 }
-/* --- SERVICES SECTION --- */
-/* --- SERVICES SECTION --- */
+
 .services {
     background: #000000;
     padding: 100px 0;
@@ -782,17 +761,17 @@ body {
 }
 
 .services-header h2 {
-    color: #ffffff !important; /* Forces the color to be black */
+    color: #ffffff !important; 
     font-family: 'Helvetica Black', sans-serif;
     font-size: 40px;
-    font-weight: 400; /* As per your Figma code */
+    font-weight: 400; 
     line-height: 40px;
     margin-top: 20px;
     margin-bottom: 10px;
 }
 
 .services-tag {
-    background: #FDC933; /* Sinolink Yellow */
+    background: #FDC933; 
     color: #000000;
     padding: 6px 14px;
     font-size: 16px;
@@ -853,9 +832,8 @@ body {
     justify-content: center;
 }
 
-/* --- ICON FIX --- */
 .service-icon {
-    color: #000000; /* Black icon on Yellow box */
+    color: #000000;
     font-size: 24px;
 }
 
@@ -868,12 +846,11 @@ body {
 }
 
 .service-card__text {
-    color: #9A9A9A; /* Light grey for better contrast */
+    color: #9A9A9A; 
     font-size: 15px;
     line-height: 1.6;
 }
 
-/* CTA Button */
 .btn-services {
     background: #E1061B;
     color: #ffffff;
@@ -911,8 +888,6 @@ body {
     }
 }   
 
-/* --- ADVANTAGE SECTION --- */
-/* --- ADVANTAGE SECTION --- */
 .advantage {
     padding: 100px 0;
     background: #ffffff;
@@ -970,7 +945,7 @@ body {
     line-height: 1;
     color: #000000;
     margin: 0;
-    white-space: nowrap; /* Keeps on one line for desktop */
+    white-space: nowrap; 
 }
 
 .advantage-title .text-red {
@@ -984,7 +959,6 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-/* --- FEATURES GRID --- */
 .advantage-features {
     display: flex;
     flex-direction: row;
@@ -1017,7 +991,6 @@ body {
     flex-shrink: 0;
 }
 
-/* Font Awesome Icon Styling */
 .advantage-icon {
     color: #000000;
     font-size: 18px;
@@ -1026,11 +999,10 @@ body {
 .feature-label {
     color: #000000;
     font-size: 14px;
-    font-weight: 600; /* Made slightly bolder for visibility */
+    font-weight: 600; 
     line-height: 1.2;
 }
 
-/* --- RESPONSIVE CLEANUP --- */
 
 @media (max-width: 992px) {
     .advantage__inner {
@@ -1063,7 +1035,7 @@ body {
     }
 
     .feature-item {
-        white-space: nowrap; /* Ensures "Direct sourcing..." stays one line */
+        white-space: nowrap;
     }
 
     .advantage-image {
@@ -1112,16 +1084,15 @@ body {
     align-items: center;
     gap: 58px;
 }
-/* Styling for the Font Awesome Icons */
+
 .process-icon {
-    color: #ffffff;    /* Makes the icon white */
-    font-size: 28px;   /* Adjusts icon size */
+    color: #ffffff;
+    font-size: 28px;   
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Ensure the circle stays a flex container */
 .icon-circle {
     width: 74px;
     height: 74px;
@@ -1205,39 +1176,37 @@ body {
 .icon-graphic {
     width: 33px;
     height: 33px;
-    background: #ffffff; /* Placeholder for your actual icons */
+    background: #ffffff; 
 }
 
 .step-badge {
     position: absolute;
-    top: -5px;      /* Positioned slightly above the black circle */
-    right: -10px;    /* Positioned slightly to the right */
-    
-    /* Perfect Circle Logic */
-    width: 32px;    /* Width and Height must be identical */
+    top: -5px;      
+    right: -10px;
+    width: 32px;
     height: 32px;
-    background-color: #E1061B; /* Sinolink Red */
-    border-radius: 50%;        /* Forces it to be a circle */
+    background-color: #E1061B; 
+    border-radius: 50%;        
     
-    /* Number Centering */
+  
     display: flex;
     justify-content: center;
     align-items: center;
     
-    /* Text Styling */
+   
     color: #ffffff;
     font-family: 'Poppins', sans-serif;
-    font-size: 14px; /* Reduced from 18px to fit inside the 32px circle */
+    font-size: 14px; 
     font-weight: 700;
     line-height: 1;
-    border: 2px solid #FDC933; /* Optional: adds a small yellow border to separate it from the black circle */
+    border: 2px solid #FDC933; 
     box-sizing: border-box;
 }
 
-/* Ensure the parent container doesn't cut off the badge */
+
 .icon-container {
     position: relative;
-    width: 74px; /* Matches the black circle width */
+    width: 74px; 
     height: 74px;
     margin-bottom: 24px;
 }
@@ -1255,18 +1224,16 @@ body {
     line-height: 1.3;
 }
 
-/* --- RESPONSIVE BREAKPOINTS --- */
-
 @media (max-width: 992px) {
     .process-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2x2 grid on tablets */
+        grid-template-columns: repeat(2, 1fr); 
         gap: 50px 30px;
     }
 }
 
 @media (max-width: 600px) {
     .process-grid {
-        grid-template-columns: 1fr; /* 1 column on small phones */
+        grid-template-columns: 1fr; 
     }
     
     .process-title {
@@ -1277,7 +1244,7 @@ body {
 /* --- COVERAGE SECTION --- */
 .coverage {
     padding: 100px 0;
-    background-color: #FFF8DD; /* Light yellow tint */
+    background-color: #FFF8DD; 
     display: flex;
     justify-content: center;
 }
@@ -1333,10 +1300,8 @@ body {
     line-height: 1.6;
 }
 
-/* Grid Logic */
 .coverage-grid {
     display: grid;
-    /* Forces 5 columns on desktop */
     grid-template-columns: repeat(5, 1fr); 
     gap: 20px;
     width: 100%;
@@ -1344,7 +1309,7 @@ body {
     margin: 0 auto 58px auto;
 }
 
-/* Country Card Styling */
+
 .country-card {
     background: white;
     padding: 25px 20px;
@@ -1391,7 +1356,7 @@ body {
     border-radius: 50%;
 }
 
-/* CTA Black Banner */
+
 .coverage-cta-banner {
     width: 100%;
     padding: 60px 20px;
@@ -1440,7 +1405,7 @@ body {
         font-size: 32px;
     }
     .country-card {
-        width: 100%; /* Stacks on small phones */
+        width: 100%; 
         max-width: 300px;
     }
     .coverage-grid {
@@ -1454,7 +1419,7 @@ body {
     }
 }
 
-/* --- CTA SECTION --- */
+
 .cta-section {
     padding: 100px 0;
     background-color: #ffffff;
@@ -1480,7 +1445,7 @@ body {
     text-align: center;
 }
 
-/* Typography */
+
 .cta-heading {
     color: #000000;
     font-size: 40px;
@@ -1499,7 +1464,7 @@ body {
     max-width: 800px;
 }
 
-/* Buttons Container */
+
 .cta-buttons {
     display: flex;
     justify-content: center;
@@ -1507,7 +1472,7 @@ body {
     gap: 26px;
 }
 
-/* Primary Button (Red) */
+
 .btn-primary {
     background-color: #E1061B;
     color: #ffffff;
@@ -1530,10 +1495,9 @@ body {
 
 .btn-icon {
     font-size: 14px;
-    /* This icon matches your design's requirement */
+    
 }
 
-/* Outline Button */
 .btn-outline {
     background-color: transparent;
     color: #000000;
@@ -1571,11 +1535,10 @@ body {
     }
 
     .cta-description br {
-        display: none; /* Removes forced line breaks on small screens */
+        display: none; 
     }
 }
 
-/* --- FOOTER STYLING --- */
 .footer {
     background-color: #000000;
     color: #ffffff;
@@ -1616,7 +1579,7 @@ body {
     margin-bottom: 5px;
 }
 
-/* Links & Lists */
+
 .footer-links, .footer-countries {
     list-style: none;
     padding: 0;
@@ -1643,14 +1606,14 @@ body {
     gap: 12px;
 }
 
-/* Icons */
+
 .footer-icon {
-    color: #FDC933; /* Brand Yellow */
+    color: #FDC933; 
     font-size: 18px;
     padding-top: 3px;
 }
 
-/* Contact Section */
+
 .footer-contact-info {
     display: flex;
     flex-direction: column;
@@ -1691,7 +1654,6 @@ body {
     color: #FDC933;
 }
 
-/* Bottom Bar */
 .footer-bottom {
     background-color: #FDC933;
     padding: 15px 20px;
@@ -1738,13 +1700,10 @@ body {
     }
 }
 
-/* ABOUT PAGE */
 
-/* Container to keep everything aligned like Figma */
 .about-breadcrumb-hero {
     width: 100%;
     min-height: 260px;
-    /* Replace the URL below with your actual hero image path */
     background-image: url('../images/about-us.jpg'); 
     background-size: cover;
     background-position: center;
@@ -1758,7 +1717,7 @@ body {
     width: 100%;
     height: 100%;
     padding: 80px 10px;
-    /* The 42deg gradient from your Figma code */
+  
     background: linear-gradient(42deg, rgba(225, 6, 27, 0.85) 0%, rgba(0, 0, 0, 0.85) 100%);
     display: flex;
     flex-direction: column;
@@ -1793,23 +1752,23 @@ body {
 }
 
 .breadcrumb a:hover {
-    color: #FDC933; /* Sinolink Yellow */
+    color: #FDC933; 
 }
 
 .breadcrumb i {
-    font-size: 16px; /* The small white arrow */
+    font-size: 16px; 
 }
 
 .who-we-are {
     padding: 100px 0;
     background-color: #fff;
     display: flex;
-    justify-content: center; /* Centers the internal container */
+    justify-content: center; 
 }
 
 .container {
     width: 100%;
-    max-width: 1152px; /* Matches Figma desktop width */
+    max-width: 1152px; 
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -1817,9 +1776,9 @@ body {
 .about-flex {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Pushes text left and image right */
+    justify-content: space-between; 
     gap: 40px;
-}/* --- Who We Are Section --- */
+}
 .who-we-are {
     padding: 100px 0;
     background-color: #ffffff;
@@ -1829,12 +1788,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 43px; /* Gap from Figma */
+    gap: 43px; 
 }
 
 .about-text {
     flex: 1;
-    text-align: left; /* Ensures text starts from the left on desktop */
+    text-align: left;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1844,8 +1803,8 @@ body {
     color: #000000;
     font-size: 40px;
     font-family: 'Helvetica Black', sans-serif;
-    font-weight: 900; /* Ensures the 'Black' weight is applied */
-    line-height: 48px; /* Increased for better readability */
+    font-weight: 900; 
+    line-height: 48px;
     margin-bottom: 24px;
     word-wrap: break-word;
 }
@@ -1855,13 +1814,13 @@ body {
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    line-height: 26px; /* Spacing between lines of text */
-    margin-bottom: 1.5rem; /* Space between paragraphs */
+    line-height: 26px; 
+    margin-bottom: 1.5rem; 
 }
 
-/* Badge specific fix */
+
 .who-badge {
-    align-self: flex-start; /* Keeps the badge on the left even in flex columns */
+    align-self: flex-start; 
     padding: 4px 12px;
     background: rgba(253, 201, 51, 0.30);
     border-top-left-radius: 8px;
@@ -1873,7 +1832,7 @@ body {
     margin-bottom: 16px;
 }
 
-/* --- Image Styling with Yellow Offset --- */
+
 .about-image-wrapper {
     flex: 1;
     position: relative;
@@ -1894,24 +1853,24 @@ body {
     object-fit: cover;
     border-radius: 80px 0 80px 0;
     position: absolute;
-    top: -25px; /* Creates the "pop-out" look */
+    top: -25px; 
     left: 0;
 }
 
-/* --- Mobile Responsiveness --- */
+
 @media (max-width: 768px) {
     .about-flex {
-        flex-direction: column; /* Stacks text on top of image */
+        flex-direction: column; 
         text-align: center;
     }
 
    .about-text {
-        text-align: center; /* Centers text only on mobile for better balance */
+        text-align: center;
         align-items: center;
     }
 
     .who-badge {
-        align-self: center; /* Centers badge on mobile */
+        align-self: center; 
     }
 
     .about-text h2 {
@@ -1920,16 +1879,15 @@ body {
     }
 
     .yellow-shape {
-        height: 350px; /* Shorter height for phones */
+        height: 350px; 
     }
 
     .yellow-shape img {
-        position: relative; /* Fixes visibility issue on mobile */
+        position: relative; 
         top: -20px;
     }
 }
 
-/* Section Background */
 .what-we-do-black {
     background-color: #000000;
     padding: 100px 0;
@@ -1971,15 +1929,15 @@ body {
     font-weight: 600;
 }
 
-/* --- The Grid --- */
+
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 24px;
 }
 
 .service-card {
-    background: #101010; /* Figma exact color */
+    background: #101010; 
     padding: 28px 14px;
     border-radius: 16px;
     display: flex;
@@ -2019,16 +1977,16 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-/* --- Mobile Fixes --- */
+
 @media (max-width: 1024px) {
     .services-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+        grid-template-columns: repeat(2, 1fr); 
     }
 }
 
 @media (max-width: 768px) {
     .services-grid {
-        grid-template-columns: 1fr; /* 1 column for phones */
+        grid-template-columns: 1fr; 
     }
     
     .title-white {
@@ -2039,7 +1997,6 @@ body {
 .services-breadcrumb-hero {
     width: 100%;
     min-height: 260px;
-    /* Replace the URL below with your actual hero image path */
     background-image: url('../images/services.jpg'); 
     background-size: cover;
     background-position: center;
@@ -2055,7 +2012,7 @@ body {
 }
 
 .services-page-grid .container {
-    max-width: 1152px; /* Exact width from your Figma */
+    max-width: 1152px; 
     margin: 0 auto;
     padding: 0 15px;
 }
@@ -2070,7 +2027,7 @@ body {
     color: #000;
     padding: 5px 20px;
     font-weight: 600;
-    border-radius: 8px 0 8px 0; /* Sinolink badge shape */
+    border-radius: 8px 0 8px 0; 
     display: inline-block;
     margin-bottom: 20px;
 }
@@ -2089,10 +2046,9 @@ body {
     color: #000;
 }
 
-/* The Grid */
 .services-grid-wrapper {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns desktop */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 24px;
 }
 
@@ -2100,7 +2056,7 @@ body {
     background: #ffffff;
     padding: 35px 25px;
     border-radius: 16px;
-    box-shadow: 7px 8px 35px rgba(0, 0, 0, 0.12); /* Figma Shadow */
+    box-shadow: 7px 8px 35px rgba(0, 0, 0, 0.12); 
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -2108,10 +2064,9 @@ body {
     border: 1px solid transparent;
 }
 
-/* --- HOVER EFFECT --- */
 .service-item-card:hover {
     transform: translateY(-10px);
-    border: 1px solid #FDC933; /* Adds subtle focus on hover */
+    border: 1px solid #FDC933; 
 }
 
 .yellow-icon-box {
@@ -2144,10 +2099,10 @@ body {
     line-height: 1.5;
 }
 
-/* --- Responsive Adjustments --- */
+
 @media (max-width: 1024px) {
     .services-grid-wrapper {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns tablet */
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -2163,11 +2118,10 @@ body {
     position: relative;
     width: 100%;
     min-height: 250px;
-    /* Replace the URL below with your actual background image path */
     background-image: url('../images/plugged.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Optional: creates a nice parallax effect */
+    background-attachment: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2177,18 +2131,18 @@ body {
     width: 100%;
     height: 100%;
     padding: 80px 0;
-    /* Exact Gradient from your Figma code */
+    
     background: linear-gradient(48deg, rgba(225, 6, 27, 0.85) 0%, rgba(0, 0, 0, 0.85) 100%);
 }
 
 .mission-content {
-    max-width: 900px; /* Prevents the text from being too wide on desktop */
+    max-width: 900px; 
     margin: 0 auto;
     text-align: center;
 }
 
 .mission-title {
-    color: #FDC933; /* Sinolink Yellow */
+    color: #FDC933; 
     font-family: 'Helvetica Black', sans-serif;
     font-size: 40px;
     font-weight: 400;
@@ -2206,7 +2160,7 @@ body {
     margin: 0 auto;
 }
 
-/* --- Responsive Viewports --- */
+
 
 @media (max-width: 768px) {
     .mission-title {
@@ -2216,7 +2170,7 @@ body {
     .mission-text {
         font-size: 16px;
         line-height: 1.5;
-        padding: 0 15px; /* Adds breathing room on mobile */
+        padding: 0 15px; 
     }
     
     .mission-overlay {
@@ -2235,7 +2189,6 @@ body {
     padding: 0 20px;
 }
 
-/* Centered Header Fix */
 .values-header {
     text-align: center;
     max-width: 800px;
@@ -2245,11 +2198,11 @@ body {
     align-items: center;
 }
 
-/* Values Grid Logic */
+
 .values-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px 30px; /* More vertical space between rows */
+    gap: 40px 30px; 
 }
 
 .value-card {
@@ -2258,7 +2211,7 @@ body {
     gap: 15px;
 }
 
-/* Align Icon and Title in a row as per Figma */
+
 .value-top {
     display: flex;
     align-items: center;
@@ -2293,12 +2246,12 @@ body {
     margin: 0;
 }
 
-/* Desktop-only line break for the header */
+
 @media (min-width: 992px) {
     .desktop-only { display: block; }
 }
 
-/* Responsive Viewports */
+
 @media (max-width: 1024px) {
     .values-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -2316,7 +2269,6 @@ body {
 .coverage-breadcrumb-hero {
     width: 100%;
     min-height: 260px;
-    /* Replace the URL below with your actual hero image path */
     background-image: url('../images/about-us.jpg'); 
     background-size: cover;
     background-position: center;
@@ -2329,7 +2281,7 @@ body {
 .coverage-page-section {
     padding: 100px 0;
     background-color: #ffffff;
-    overflow: hidden; /* Prevents circles from causing scrollbars */
+    overflow: hidden; 
 }
 
 .coverage-page-section .container {
@@ -2351,10 +2303,10 @@ body {
 }
 
 .badge-red-soft {
-    display: inline-block; /* Prevents it from stretching full-width */
+    display: inline-block; 
     padding: 4px 16px;
-    background: rgba(225, 6, 27, 0.15); /* Soft Sinolink Red */
-    color: #E1061B; /* Sharp Sinolink Red text */
+    background: rgba(225, 6, 27, 0.15); 
+    color: #E1061B; 
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
     font-weight: 600;
@@ -2369,7 +2321,7 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers the badge, title, and subtitle */
+    align-items: center; 
     text-align: center;
     margin-bottom: 40px;
 }
@@ -2428,13 +2380,12 @@ body {
 
 .main-map-img {
     position: relative;
-    z-index: 2; /* Sits on top of circles */
+    z-index: 2; 
     width: 602px;
     height: auto;
     filter: drop-shadow(0px 10px 30px rgba(0,0,0,0.1));
 }
 
-/* Responsive Adjustments */
 @media (max-width: 992px) {
     .map-visual-container {
         width: 600px;
@@ -2461,7 +2412,6 @@ body {
 .media-breadcrumb-hero {
     width: 100%;
     min-height: 260px;
-    /* Replace the URL below with your actual hero image path */
     background-image: url('../images/electric-vehicle-charging.jpg'); 
     background-size: cover;
     background-position: center;
@@ -2478,7 +2428,7 @@ body {
 
 .gallery-section .container {
     max-width: 1152px;
-    margin: 0 auto; /* This centers the whole thing */
+    margin: 0 auto; 
     padding: 0 20px;
 }
 
@@ -2490,9 +2440,9 @@ body {
     margin-bottom: 40px;
 }
 
-/* Fixes the Grid misalignment */
+
 .gallery-grid {
-    display: grid !important; /* Force grid layout */
+    display: grid !important; 
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     width: 100%;
@@ -2500,7 +2450,7 @@ body {
 
 .gallery-item {
     position: relative;
-    height: 250px; /* Uniform height */
+    height: 250px; 
     border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
@@ -2509,7 +2459,7 @@ body {
 .gallery-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Prevents image distortion */
+    object-fit: cover; 
     transition: 0.3s ease;
 }
 
@@ -2517,7 +2467,7 @@ body {
     transform: scale(1.05);
 }
 
-/* Lightbox Styling */
+
 .lightbox {
     display: none;
     position: fixed;
@@ -2543,43 +2493,41 @@ body {
     cursor: pointer;
 }
 
-/* --- Mobile Responsive Gallery --- */
+
 
 @media (max-width: 768px) {
-    /* Force the grid into a single column */
+    
     .gallery-grid {
         grid-template-columns: 1fr !important; 
-        gap: 15px; /* Slightly tighter gap for mobile */
-        padding: 0 10px; /* Ensures the images don't touch the very edge of the screen */
+        gap: 15px; 
+        padding: 0 10px; 
     }
 
-    /* Adjust item height so images look natural on mobile */
     .gallery-item {
-        height: 300px; /* taller images look better on mobile scrolls */
+        height: 300px; 
     }
 
-    /* Center the header text even more for mobile */
     .gallery-header h2 {
-        font-size: 28px; /* Shrink title slightly so it doesn't wrap awkwardly */
+        font-size: 28px; 
         line-height: 1.2;
     }
 
-    /* Adjust Lightbox for mobile */
+    
     .close-lightbox {
         top: 20px;
         right: 20px;
-        font-size: 40px; /* Smaller X so it doesn't block the image */
+        font-size: 40px; 
     }
 
     .lightbox-content {
-        max-width: 95%; /* Use more of the screen width on mobile */
+        max-width: 95%; 
     }
 }
 
 .contact-breadcrumb-hero {
     width: 100%;
     min-height: 260px;
-    /* Replace the URL below with your actual hero image path */
+   
     background-image: url('../images/about-us.jpg'); 
     background-size: cover;
     background-position: center;
@@ -2608,14 +2556,14 @@ body {
     margin-bottom: 60px;
 }
 
-/* Grid Layout */
+
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 }
 
-/* Card Styling */
+
 .contact-card {
     padding: 40px 20px;
     border-radius: 24px;
@@ -2629,7 +2577,7 @@ body {
 
 .contact-card:hover {
     transform: translateY(-5px);
-    outline: 1.5px solid #FDC933; /* Glow yellow on hover */
+    outline: 1.5px solid #FDC933; 
 }
 
 .contact-icon-box {
@@ -2668,19 +2616,19 @@ body {
 }
 
 .contact-link:hover {
-    color: #E1061B; /* Turns red on hover */
+    color: #E1061B; 
 }
 
-/* --- Mobile Viewport --- */
+
 @media (max-width: 992px) {
     .contact-grid {
-        grid-template-columns: 1fr; /* Stack vertically on mobile/tablet */
+        grid-template-columns: 1fr; 
         gap: 30px;
     }
     
     .contact-card {
         max-width: 400px;
-        margin: 0 auto; /* Center cards when stacked */
+        margin: 0 auto; 
         width: 100%;
     }
 }
@@ -2713,7 +2661,6 @@ body {
     margin-top: 10px;
 }
 
-/* Form Styling */
 .contact-form {
     display: flex;
     flex-direction: column;
@@ -2753,7 +2700,7 @@ body {
 .form-group input:focus, 
 .form-group select:focus, 
 .form-group textarea:focus {
-    border: 1px solid #E1061B; /* Sinolink Red Focus */
+    border: 1px solid #E1061B; 
 }
 
 .btn-send-inquiry {
@@ -2773,7 +2720,6 @@ body {
     background: #c20516;
 }
 
-/* Side Image */
 .inquiry-image {
     flex: 1;
     max-width: 564px;
@@ -2787,7 +2733,7 @@ body {
     border-bottom-right-radius: 40px;
 }
 
-/* Mobile Responsive */
+
 @media (max-width: 992px) {
     .inquiry-flex-wrapper {
         flex-direction: column;
@@ -2799,15 +2745,15 @@ body {
     }
     .inquiry-image {
         height: 400px;
-        order: -1; /* Image appears above form on mobile */
+        order: -1; 
     }
 }
 
-/* WhatsApp Floating Button - Right Side */
+
 .whatsapp-float {
     position: fixed;
     bottom: 30px;
-    right: 30px; /* Moved to Right */
+    right: 30px; 
     background-color: #25d366;
     color: #FFF;
     border-radius: 50px;
@@ -2831,14 +2777,14 @@ body {
     font-weight: 600;
 }
 
-/* Hover Effect */
+
 .whatsapp-float:hover {
     transform: translateY(-5px) scale(1.05);
     background-color: #128c7e;
     color: #fff;
 }
 
-/* Mobile Tweak: Hide text on very small screens to keep it a neat circle */
+
 @media (max-width: 480px) {
     .whatsapp-float span {
         display: none !important;
@@ -2851,7 +2797,7 @@ body {
     }
 }
 
-/* Hide WhatsApp Button on Mobile Devices */
+
 @media (max-width: 768px) {
     .whatsapp-float {
         display: none !important;
@@ -2895,11 +2841,10 @@ body {
 .policy-text-wrapper li {
     margin-bottom: 10px;
 }
-/* Optimized Cookie Banner */
-/* Cookie Banner Styling */
+
 .cookie-container {
     position: fixed;
-    bottom: -400px; /* Increased depth to ensure it's fully hidden */
+    bottom: -400px; 
     left: 0;
     right: 0;
     background: #222;
@@ -2907,7 +2852,7 @@ body {
     padding: 20px;
     z-index: 10000;
     transition: all 0.6s ease-in-out;
-    visibility: hidden; /* Ensures it doesn't block clicks when hidden */
+    visibility: hidden; 
 }
 
 .cookie-container.show {
@@ -2932,12 +2877,12 @@ body {
 }
 
 .cookie-content a {
-    color: #FDC933; /* Sinolink Yellow */
+    color: #FDC933; 
     text-decoration: underline;
 }
 
 .btn-accept {
-    background: #E1061B; /* Sinolink Red */
+    background: #E1061B;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -2947,7 +2892,7 @@ body {
     white-space: nowrap;
 }
 
-/* Mobile Fix */
+
 @media (max-width: 768px) {
     .cookie-content {
         flex-direction: column;
@@ -2955,7 +2900,7 @@ body {
     }
 }
 
-/* The starting state: invisible and 30px below its position */
+
 .reveal {
     position: relative;
     transform: translateY(30px);
@@ -2963,7 +2908,7 @@ body {
     transition: 1s all ease;
 }
 
-/* The state triggered when the user scrolls to the element */
+
 .reveal.active {
     transform: translateY(0);
     opacity: 1;
